@@ -6,13 +6,13 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.hengyunabc</groupId>
+	<groupId>io.github.marko-p</groupId>
 	<artifactId>zabbix-api</artifactId>
 	<version>0.0.3-SNAPSHOT</version>
 
 	<name>zabbix-api</name>
 	<description>zabbix-api for java</description>
-	<url>https://github.com/hengyunabc/zabbix-api</url>
+	<url>https://github.com/marko-p/zabbix-api</url>
 	<inceptionYear>2015</inceptionYear>
 
 	<licenses>
@@ -30,12 +30,16 @@
 			<name>hengyunabc</name>
 			<email>hengyunabc@gmail.com</email>
 		</developer>
+		<developer>
+			<id>marko-p</id>
+			<name>marko-p</name>
+		</developer>
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:hengyunabc/zabbix-api.git</connection>
-		<developerConnection>scm:git:git@github.com:hengyunabc/zabbix-api.git</developerConnection>
-		<url>https://github.com/hengyunabc/zabbix-api</url>
+		<connection>scm:git:git@github.com:marko-p/zabbix-api.git</connection>
+		<developerConnection>scm:git:git@github.com:marko-p/zabbix-api.git</developerConnection>
+		<url>https://github.com/marko-p/zabbix-api</url>
 	</scm>
 
 	<properties>
@@ -46,52 +50,63 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- Logging -->
-		<logback.version>1.0.13</logback.version>
-		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.1.2</logback.version>
 
 		<!-- Test -->
-		<junit.version>4.11</junit.version>
+		<junit.version>4.12</junit.version>
 
 	</properties>
 
 	<dependencies>
+		<!--	Maven build dependencies	-->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.maven.plugins</groupId>-->
+<!--			<artifactId>maven-site-plugin</artifactId>-->
+<!--			<version>3.12.0</version>-->
+<!--			<type>maven-plugin</type>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-install-plugin</artifactId>
+			<version>2.5.2</version>
+			<type>maven-plugin</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>2.8.2</version>
+			<type>maven-plugin</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-gpg-plugin</artifactId>
+			<version>3.0.1</version>
+			<type>maven-plugin</type>
+		</dependency>
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.1.39</version>
+			<version>2.0.7</version>
 		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.3.6</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>4.5.13</version>
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>commons-logging</groupId>-->
+<!--					<artifactId>commons-logging</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
 		</dependency>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${slf4j.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>log4j-over-slf4j</artifactId>
-			<version>${slf4j.version}</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
@@ -149,6 +164,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>3.2.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -162,6 +178,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.4.0</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>

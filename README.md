@@ -32,11 +32,11 @@ public interface ZabbixApi {
 ##Example
 ```java
 		String url = "http://192.168.90.102/zabbix/api_jsonrpc.php";
-		zabbixApi = new DefaultZabbixApi(url);
+        ZabbixApi zabbixApi = new DefaultZabbixApi(url);
 		zabbixApi.init();
 
 		boolean login = zabbixApi.login("zabbix.dev", "goK0Loqua4Eipoe");
-		System.err.println("login:" + login);
+		System.out.println("login:" + login);
 
 		String host = "192.168.66.29";
 		JSONObject filter = new JSONObject();
@@ -46,10 +46,10 @@ public interface ZabbixApi {
 				.method("host.get").paramEntry("filter", filter)
 				.build();
 		JSONObject getResponse = zabbixApi.call(getRequest);
-		System.err.println(getResponse);
+		System.out.println(getResponse);
 		String hostid = getResponse.getJSONArray("result")
 				.getJSONObject(0).getString("hostid");
-		System.err.println(hostid);
+		System.out.println(hostid);
 ```
 
 You can set your own ```HttpClient```.
@@ -75,6 +75,7 @@ You can set your own ```HttpClient```.
 ```
 
 ##Maven dependency
+The dependency snippet below gives an older version of this library.
 
 ```xml
 <dependency>
@@ -86,6 +87,7 @@ You can set your own ```HttpClient```.
 
 ##Links
 
+https://github.com/hengyunabc/zabbix-api
 https://github.com/hengyunabc/zabbix-sender
 
 
